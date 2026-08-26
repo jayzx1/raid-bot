@@ -104,7 +104,7 @@ class FloodButton(discord.ui.View):
         await interaction.response.defer()
         max_retries = 2
 
-        for _ in range(1000):
+        for _ in range(15):
             retries = 0
             while retries <= max_retries:
                 try:
@@ -114,7 +114,7 @@ class FloodButton(discord.ui.View):
                 except discord.errors.HTTPException as e:
                     if e.status == 429:
                         retry_after = getattr(e, "retry_after", 1.5)
-                        retry_after = min(retry_after, 5)
+                        retry_after = min(retry_after, 15)
                         print(f"{Fore.YELLOW}>{Fore.WHITE} Rate limit hit, retrying after {Fore.YELLOW}{retry_after:.2f}s{Fore.WHITE} (retry {Fore.YELLOW}{retries + 1}{Fore.WHITE}/{Fore.YELLOW}{max_retries}{Fore.WHITE})")
                         await asyncio.sleep(retry_after)
                         retries += 1
@@ -187,7 +187,7 @@ class SpamButton(discord.ui.View):
     async def spam_button(self, interaction: discord.Interaction, button: discord.ui.Button):
         await interaction.response.defer()
         allowed = discord.AllowedMentions(everyone=True, users=True, roles=True)
-        for _ in range(5):  
+        for _ in range(15):  
             await interaction.followup.send(self.message, allowed_mentions=allowed)  
 
 # Storage for custom raid messages
