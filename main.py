@@ -216,7 +216,7 @@ GO TO HEX || SERVER NOW EVERY SINGLE NIGGER IN HERE STOP USING THIS FUCKING SHIT
 ━━━━━━━━━━━━┓
 https://discord.gg/FEhwQScTaj
 ━━━━━━━━━━━━┛
-@everyone @here''')
+@everyone @here''' https://i.imgur.com/QJ3fj7X.gif )
     
     try:
         view = FloodButton(raid_message, delay)
